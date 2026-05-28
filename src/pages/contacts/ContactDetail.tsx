@@ -102,7 +102,7 @@ export default function ContactDetail() {
       label: `Invoices (${relatedInvoices.length})`,
       content: (
         <GlassTable
-          columns={invoiceCols as TableColumn<Record<string, unknown>>[]}
+          columns={invoiceCols as unknown as TableColumn<Record<string, unknown>>[]}
           data={relatedInvoices as unknown as Record<string, unknown>[]}
           onRowClick={row => navigate(`/sales/invoices/${(row as unknown as Invoice).id}`)}
           emptyText="No invoices for this contact"
@@ -114,7 +114,7 @@ export default function ContactDetail() {
       label: `Bills (${relatedBills.length})`,
       content: (
         <GlassTable
-          columns={billCols as TableColumn<Record<string, unknown>>[]}
+          columns={billCols as unknown as TableColumn<Record<string, unknown>>[]}
           data={relatedBills as unknown as Record<string, unknown>[]}
           onRowClick={row => navigate(`/purchasing/bills/${(row as unknown as Bill).id}`)}
           emptyText="No bills for this contact"
@@ -169,7 +169,7 @@ export default function ContactDetail() {
         title={contact.is_active ? 'Deactivate Contact' : 'Activate Contact'}
         message={`Are you sure you want to ${contact.is_active ? 'deactivate' : 'activate'} ${contact.name}?`}
         confirmLabel={contact.is_active ? 'Deactivate' : 'Activate'}
-        variant={contact.is_active ? 'danger' : 'primary'}
+        confirmVariant={contact.is_active ? 'danger' : 'primary'}
       />
     </>
   )

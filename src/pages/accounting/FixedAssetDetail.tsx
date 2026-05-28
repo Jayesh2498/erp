@@ -132,7 +132,7 @@ export default function FixedAssetDetail() {
         title={asset.name}
         subtitle={`${asset.category} · Added ${formatDate(asset.created_at)}`}
         backHref="/accounting/fixed-assets"
-        badge={<GlassBadge variant={STATUS_VARIANTS[asset.status] ?? 'neutral'}>{asset.status.replace('_', ' ')}</GlassBadge>}
+        badges={<GlassBadge variant={STATUS_VARIANTS[asset.status] ?? 'neutral'}>{asset.status.replace('_', ' ')}</GlassBadge>}
         actions={
           <>
             {asset.status === 'active' && (
@@ -242,7 +242,7 @@ export default function FixedAssetDetail() {
             label="Disposal Date"
             type="date"
             value={disposeForm.date}
-            onChange={e => setDisposeForm(f => ({ ...f, date: e.target.value }))}
+            onChange={v => setDisposeForm(f => ({ ...f, date: v }))}
             required
           />
           <GlassInput
@@ -250,7 +250,7 @@ export default function FixedAssetDetail() {
             type="number"
             placeholder="0"
             value={disposeForm.proceeds}
-            onChange={e => setDisposeForm(f => ({ ...f, proceeds: e.target.value }))}
+            onChange={v => setDisposeForm(f => ({ ...f, proceeds: v }))}
           />
           {disposeForm.proceeds && (
             <div className="text-sm p-3 rounded-md" style={{ background: tokens.glass.bg, border: `1px solid ${tokens.glass.border}` }}>
@@ -270,7 +270,7 @@ export default function FixedAssetDetail() {
         title="Delete Asset"
         message={`Are you sure you want to delete "${asset.name}"? This cannot be undone.`}
         confirmLabel="Delete"
-        variant="danger"
+        confirmVariant="danger"
       />
     </>
   )

@@ -63,14 +63,12 @@ function GlobalSearchInner({ onClose }: { onClose: () => void }) {
   const { items: purchaseOrders } = useLocalStore<PurchaseOrder>('purchase-orders', MOCK_PURCHASE_ORDERS)
   const { items: bills } = useLocalStore<Bill>('bills', MOCK_BILLS)
 
-  // Reset on open
+  // Reset state and focus input when this inner component mounts (always means search is open)
   useEffect(() => {
-    if (open) {
-      setQuery('')
-      setSelectedIdx(0)
-      setTimeout(() => inputRef.current?.focus(), 50)
-    }
-  }, [open])
+    setQuery('')
+    setSelectedIdx(0)
+    setTimeout(() => inputRef.current?.focus(), 50)
+  }, [])
 
   const q = query.trim().toLowerCase()
 
@@ -168,7 +166,6 @@ function GlobalSearchInner({ onClose }: { onClose: () => void }) {
 
   // Keyboard navigation
   useEffect(() => {
-    if (!open) return
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { onClose(); return }
       if (e.key === 'ArrowDown') { e.preventDefault(); setSelectedIdx(i => Math.min(i + 1, results.length - 1)) }
@@ -177,7 +174,7 @@ function GlobalSearchInner({ onClose }: { onClose: () => void }) {
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [open, results, selectedIdx, onClose, navigate_to])
+  }, [results, selectedIdx, onClose, navigate_to])
 
   // Scroll selected item into view
   useEffect(() => {
@@ -188,8 +185,6 @@ function GlobalSearchInner({ onClose }: { onClose: () => void }) {
     const el = listRef.current?.children[selectedIdx] as HTMLElement | undefined
     el?.scrollIntoView({ block: 'nearest' })
   }, [selectedIdx])
-
-  if (!open) return null
 
   // Group results by type
   const grouped: Partial<Record<SearchResult['type'], SearchResult[]>> = {}
@@ -223,7 +218,7 @@ function GlobalSearchInner({ onClose }: { onClose: () => void }) {
             WebkitBackdropFilter: tokens.glass.blur,
             border: `1px solid ${tokens.glass.border}`,
             borderRadius: tokens.radius.lg,
-            boxShadow: tokens.shadow.xl,
+            boxShadow: tokens.shadow.lg,
           }}
         >
           {/* Search input */}

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route, NavLink, useNavigate } from 'react-router-dom'
 import {
-  Building2, Users, Shield, Bell, Sliders, ChevronRight,
+  Building2, Users, Shield, Bell, ChevronRight,
 } from 'lucide-react'
 import {
-  PageLayout, GlassCard, GlassButton, GlassInput, GlassSelect, GlassTable,
-  GlassModal, ConfirmModal, GlassBadge,
+  GlassCard, GlassButton, GlassInput, GlassSelect, GlassTable,
+  GlassModal, GlassBadge,
 } from '@/components/ui-kit'
 import type { TableColumn } from '@/components/ui-kit'
 import { useLocalStore } from '@/hooks/useLocalStore'
-import { MOCK_WORKSPACE_SETTINGS, MOCK_CONTACTS } from '@/lib/mockData'
-import type { WorkspaceSettings, Contact } from '@/types'
+import { MOCK_WORKSPACE_SETTINGS } from '@/lib/mockData'
+import type { WorkspaceSettings } from '@/types'
 import { DemoBanner } from '@/components/DemoBanner'
 import { useToast } from '@/components/ui-kit'
 import { tokens } from '@/components/ui-kit/tokens'
@@ -110,19 +110,19 @@ function CompanySettings() {
             <GlassInput
               label="Company Name"
               value={settings.company_name}
-              onChange={e => setSettings(s => ({ ...s, company_name: e.target.value }))}
+              onChange={v => setSettings(s => ({ ...s, company_name: v }))}
               required
             />
             <GlassInput
               label="GSTIN"
               value={settings.gstin}
-              onChange={e => setSettings(s => ({ ...s, gstin: e.target.value }))}
+              onChange={v => setSettings(s => ({ ...s, gstin: v }))}
               placeholder="27AABCS1429B1ZB"
             />
             <GlassInput
               label="PAN"
               value={settings.pan}
-              onChange={e => setSettings(s => ({ ...s, pan: e.target.value }))}
+              onChange={v => setSettings(s => ({ ...s, pan: v }))}
               placeholder="AABCS1429B"
             />
             <GlassSelect
@@ -143,18 +143,18 @@ function CompanySettings() {
               <GlassInput
                 label="Address Line 1"
                 value={settings.address?.line1 ?? ''}
-                onChange={e => setSettings(s => ({ ...s, address: { ...(s.address ?? { city: '', state: '', state_code: '', pincode: '' }), line1: e.target.value } }))}
+                onChange={v => setSettings(s => ({ ...s, address: { ...(s.address ?? { city: '', state: '', state_code: '', pincode: '' }), line1: v } }))}
               />
             </div>
             <GlassInput
               label="City"
               value={settings.address?.city ?? ''}
-              onChange={e => setSettings(s => ({ ...s, address: { ...(s.address ?? { line1: '', state: '', state_code: '', pincode: '' }), city: e.target.value } }))}
+              onChange={v => setSettings(s => ({ ...s, address: { ...(s.address ?? { line1: '', state: '', state_code: '', pincode: '' }), city: v } }))}
             />
             <GlassInput
               label="Pincode"
               value={settings.address?.pincode ?? ''}
-              onChange={e => setSettings(s => ({ ...s, address: { ...(s.address ?? { line1: '', city: '', state: '', state_code: '' }), pincode: e.target.value } }))}
+              onChange={v => setSettings(s => ({ ...s, address: { ...(s.address ?? { line1: '', city: '', state: '', state_code: '' }), pincode: v } }))}
             />
           </div>
         </div>
@@ -352,14 +352,14 @@ function UserSettings() {
           <GlassInput
             label="Full Name"
             value={inviteForm.name}
-            onChange={e => setInviteForm(f => ({ ...f, name: e.target.value }))}
+            onChange={v => setInviteForm(f => ({ ...f, name: v }))}
             required
           />
           <GlassInput
             label="Email Address"
             type="email"
             value={inviteForm.email}
-            onChange={e => setInviteForm(f => ({ ...f, email: e.target.value }))}
+            onChange={v => setInviteForm(f => ({ ...f, email: v }))}
             required
           />
           <GlassSelect
@@ -425,7 +425,6 @@ function NotificationSettings() {
 /* ── Main Settings shell ──────────────────────────────────── */
 export default function Settings() {
   const { user } = useAuth()
-  const navigate = useNavigate()
 
   useEffect(() => { document.title = 'Settings | ERP' }, [])
 

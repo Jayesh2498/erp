@@ -111,21 +111,17 @@ export default function FixedAssetForm() {
         title={isEdit ? 'Edit Fixed Asset' : 'Add Fixed Asset'}
         subtitle={isEdit ? existing?.name : 'Track a new asset for depreciation'}
         backHref="/accounting/fixed-assets"
-        actions={
-          <>
-            <GlassButton variant="secondary" onClick={() => navigate('/accounting/fixed-assets')}>Cancel</GlassButton>
-            <GlassButton variant="primary" loading={saving} onClick={handleSave}>
-              {isEdit ? 'Save Changes' : 'Add Asset'}
-            </GlassButton>
-          </>
-        }
+        onCancel={() => navigate('/accounting/fixed-assets')}
+        onSave={handleSave}
+        saving={saving}
+        saveLabel={isEdit ? 'Save Changes' : 'Add Asset'}
       >
         <FormSection title="Asset Details">
           <GlassInput
             label="Asset Name"
             placeholder="e.g. Dell PowerEdge Server"
             value={form.name}
-            onChange={e => set('name', e.target.value)}
+            onChange={v => set('name', v)}
             error={errors.name}
             required
           />
@@ -150,7 +146,7 @@ export default function FixedAssetForm() {
             label="Purchase Date"
             type="date"
             value={form.purchase_date}
-            onChange={e => set('purchase_date', e.target.value)}
+            onChange={v => set('purchase_date', v)}
             error={errors.purchase_date}
             required
           />
@@ -159,7 +155,7 @@ export default function FixedAssetForm() {
             type="number"
             placeholder="e.g. 480000"
             value={form.purchase_cost}
-            onChange={e => set('purchase_cost', e.target.value)}
+            onChange={v => set('purchase_cost', v)}
             error={errors.purchase_cost}
             required
           />
@@ -191,7 +187,7 @@ export default function FixedAssetForm() {
             type="number"
             placeholder="e.g. 5"
             value={form.useful_life_years}
-            onChange={e => set('useful_life_years', e.target.value)}
+            onChange={v => set('useful_life_years', v)}
             error={errors.useful_life_years}
             required
           />
@@ -200,7 +196,7 @@ export default function FixedAssetForm() {
             type="number"
             placeholder="e.g. 48000"
             value={form.salvage_value}
-            onChange={e => set('salvage_value', e.target.value)}
+            onChange={v => set('salvage_value', v)}
             error={errors.salvage_value}
             required
           />

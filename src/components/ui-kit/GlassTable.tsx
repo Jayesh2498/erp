@@ -31,7 +31,8 @@ export interface TableColumn<T = Record<string, unknown>> {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface GlassTableProps<T extends Record<string, any>> {
-  columns: TableColumn<T>[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns: TableColumn<any>[]
   data: T[]
   onRowClick?: (row: T) => void
   loading?: boolean

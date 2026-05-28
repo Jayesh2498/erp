@@ -7,10 +7,17 @@
  */
 import React from 'react'
 import { NavLink, useLocation, Navigate } from 'react-router-dom'
+import { Building2, Users, Shield, Bell } from 'lucide-react'
 import { useAuth } from '@/providers/AuthProvider'
-import { SETTINGS_NAV } from '@/config/navigation'
 import { tokens } from '@/components/ui-kit/tokens'
 import { cn } from '@/lib/utils'
+
+const SETTINGS_NAV = [
+  { key: 'company',       label: 'Company Profile', href: '/settings',               icon: Building2 },
+  { key: 'users',         label: 'Users & Roles',   href: '/settings/users',          icon: Users },
+  { key: 'tds',           label: 'TDS Rates',        href: '/settings/tds',            icon: Shield },
+  { key: 'notifications', label: 'Notifications',    href: '/settings/notifications',  icon: Bell },
+]
 
 interface SettingsLayoutProps {
   children: React.ReactNode

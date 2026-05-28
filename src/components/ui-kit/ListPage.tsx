@@ -31,7 +31,8 @@ interface ListPageProps<T extends Record<string, unknown>> {
   backHref?: string
   actions?: React.ReactNode
   /** Column definitions for GlassTable */
-  columns: TableColumn<T>[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns: TableColumn<any>[]
   data: T[]
   onRowClick?: (row: T) => void
   loading?: boolean

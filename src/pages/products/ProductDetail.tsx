@@ -100,7 +100,7 @@ export default function ProductDetail() {
             label: 'Stock Levels',
             content: (
               <GlassTable
-                columns={stockCols as TableColumn<Record<string, unknown>>[]}
+                columns={stockCols as unknown as TableColumn<Record<string, unknown>>[]}
                 data={productStock as unknown as Record<string, unknown>[]}
                 rowKey="warehouse_id"
                 emptyText="No stock data"

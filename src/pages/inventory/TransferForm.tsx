@@ -65,6 +65,7 @@ export default function TransferForm() {
         updatedInv[dstIdx] = { ...updatedInv[dstIdx], quantity: updatedInv[dstIdx].quantity + line.quantity }
       } else {
         updatedInv.push({
+          id: `inv-${line.product_id}-${toWh}`,
           product_id: line.product_id,
           product_name: line.product_name,
           sku: product?.sku ?? '',

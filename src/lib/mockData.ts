@@ -360,16 +360,16 @@ export const MOCK_DEBIT_NOTES: DebitNote[] = [
 ]
 
 export const MOCK_INVENTORY: InventoryItem[] = [
-  { product_id: 'p-1', product_name: 'Arc Reactor Mark IV', sku: 'ARC-004', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 12, committed_quantity: 8, reorder_point: 5 },
-  { product_id: 'p-1', product_name: 'Arc Reactor Mark IV', sku: 'ARC-004', warehouse_id: 'wh-2', warehouse_name: 'Pune Branch', quantity: 3, committed_quantity: 0, reorder_point: 2 },
-  { product_id: 'p-2', product_name: 'Iron Man Suit — Mark L', sku: 'IMS-050', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 2, committed_quantity: 0, reorder_point: 1 },
-  { product_id: 'p-3', product_name: 'Repulsor Gauntlet', sku: 'RPG-010', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 35, committed_quantity: 20, reorder_point: 10 },
-  { product_id: 'p-3', product_name: 'Repulsor Gauntlet', sku: 'RPG-010', warehouse_id: 'wh-2', warehouse_name: 'Pune Branch', quantity: 8, committed_quantity: 0, reorder_point: 5 },
-  { product_id: 'p-4', product_name: 'JARVIS AI Module', sku: 'JAR-001', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 4, committed_quantity: 1, reorder_point: 3 },
-  { product_id: 'p-5', product_name: 'Vibranium Composite Plate', sku: 'VCP-100', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 15, committed_quantity: 0, reorder_point: 20 },
-  { product_id: 'p-5', product_name: 'Vibranium Composite Plate', sku: 'VCP-100', warehouse_id: 'wh-2', warehouse_name: 'Pune Branch', quantity: 5, committed_quantity: 0, reorder_point: 10 },
-  { product_id: 'p-6', product_name: 'Holographic Display Unit', sku: 'HDU-025', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 8, committed_quantity: 2, reorder_point: 8 },
-  { product_id: 'p-7', product_name: 'Quantum Tunneling Chip', sku: 'QTC-007', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 1, committed_quantity: 0, reorder_point: 2 },
+  { id: 'inv-1',  product_id: 'p-1', product_name: 'Arc Reactor Mark IV', sku: 'ARC-004', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 12, committed_quantity: 8, reorder_point: 5 },
+  { id: 'inv-2',  product_id: 'p-1', product_name: 'Arc Reactor Mark IV', sku: 'ARC-004', warehouse_id: 'wh-2', warehouse_name: 'Pune Branch', quantity: 3, committed_quantity: 0, reorder_point: 2 },
+  { id: 'inv-3',  product_id: 'p-2', product_name: 'Iron Man Suit — Mark L', sku: 'IMS-050', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 2, committed_quantity: 0, reorder_point: 1 },
+  { id: 'inv-4',  product_id: 'p-3', product_name: 'Repulsor Gauntlet', sku: 'RPG-010', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 35, committed_quantity: 20, reorder_point: 10 },
+  { id: 'inv-5',  product_id: 'p-3', product_name: 'Repulsor Gauntlet', sku: 'RPG-010', warehouse_id: 'wh-2', warehouse_name: 'Pune Branch', quantity: 8, committed_quantity: 0, reorder_point: 5 },
+  { id: 'inv-6',  product_id: 'p-4', product_name: 'JARVIS AI Module', sku: 'JAR-001', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 4, committed_quantity: 1, reorder_point: 3 },
+  { id: 'inv-7',  product_id: 'p-5', product_name: 'Vibranium Composite Plate', sku: 'VCP-100', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 15, committed_quantity: 0, reorder_point: 20 },
+  { id: 'inv-8',  product_id: 'p-5', product_name: 'Vibranium Composite Plate', sku: 'VCP-100', warehouse_id: 'wh-2', warehouse_name: 'Pune Branch', quantity: 5, committed_quantity: 0, reorder_point: 10 },
+  { id: 'inv-9',  product_id: 'p-6', product_name: 'Holographic Display Unit', sku: 'HDU-025', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 8, committed_quantity: 2, reorder_point: 8 },
+  { id: 'inv-10', product_id: 'p-7', product_name: 'Quantum Tunneling Chip', sku: 'QTC-007', warehouse_id: 'wh-1', warehouse_name: 'Mumbai Main', quantity: 1, committed_quantity: 0, reorder_point: 2 },
 ]
 
 export const MOCK_STOCK_TRANSFERS: StockTransfer[] = [

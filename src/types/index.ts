@@ -285,6 +285,7 @@ export interface DebitNote {
 }
 
 export interface InventoryItem {
+  id: string
   product_id: string
   product_name: string
   sku: string

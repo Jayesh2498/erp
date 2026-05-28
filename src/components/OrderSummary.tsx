@@ -22,13 +22,13 @@ function round2(n: number) {
 }
 
 export function OrderSummary({ lines, isIntraState, className }: OrderSummaryProps) {
-  const subtotal     = round2(lines.reduce((s, l) => s + l.taxable_amount + l.discount_amount, 0))
-  const discountTotal = round2(lines.reduce((s, l) => s + l.discount_amount, 0))
-  const cgstTotal    = round2(lines.reduce((s, l) => s + l.cgst_amount, 0))
-  const sgstTotal    = round2(lines.reduce((s, l) => s + l.sgst_amount, 0))
-  const igstTotal    = round2(lines.reduce((s, l) => s + l.igst_amount, 0))
-  const taxTotal     = round2(lines.reduce((s, l) => s + l.tax_amount, 0))
-  const grandTotal   = round2(lines.reduce((s, l) => s + l.line_total, 0))
+  const subtotal      = round2(lines.reduce((s, l) => s + l.unit_price * l.quantity, 0))
+  const discountTotal = round2(lines.reduce((s, l) => s + l.unit_price * l.quantity * (l.discount_pct / 100), 0))
+  const cgstTotal     = round2(lines.reduce((s, l) => s + l.cgst, 0))
+  const sgstTotal     = round2(lines.reduce((s, l) => s + l.sgst, 0))
+  const igstTotal     = round2(lines.reduce((s, l) => s + l.igst, 0))
+  const taxTotal      = round2(lines.reduce((s, l) => s + l.cgst + l.sgst + l.igst, 0))
+  const grandTotal    = round2(lines.reduce((s, l) => s + l.line_total, 0))
 
   return (
     <div
